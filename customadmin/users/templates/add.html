@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<link rel="stylesheet" href="{% static "style.css" %}">
+<title> CSS Login Screen Tutorial </title>
+<style>
+  
+  select {
+  
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3> Camp Data</h3>
+            <p>  Add your Camp Data  </p>
+          </div>
+        </div>
+        <form class="login-form" method="post" action="{% url "add" %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+          <select id="campname"  name="campname"   >
+
+              {% for campname in campname %}
+              <option value="{{campname.campname}}" required >{{campname.campname}}</option>
+              {% endfor %}
+              
+          </select>
+        
+  
+          <input type="text" placeholder="Your Id " name="idname" required> <br>
+          <input type="text" placeholder="Amount " name="amount" required> <br>
+          <input type="file" id="myFile" name="filename" required><br>
+
+          <button>Submit</button>
+        </form>
+       
+      </div>
+    </div>
+</body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<link rel="stylesheet" href="{% static "style.css" %}">
+<title> CSS Login Screen Tutorial </title>
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>  Create Your Account  </p>
+          </div>
+        </div>
+        <form class="login-form" method="post" action="{% url "login" %}">
+          {% csrf_token %}
+          <input type="text" placeholder="Username" name ="username">
+          
+          <input type="password" placeholder="Password" name="password">
+          <button type="submit">Log in</button>
+          
+        </form>
+        <p class="message"> Already have an account ? <a href="{% url "signup" %}">Signup</a></p>
+      </div>
+    </div>
+</body>
+</body>
+</html>
