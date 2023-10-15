@@ -1,15 +1,13 @@
 import os
-from pydoc import tempfilepager
-import tempfile
+
 from django.conf import settings
 from django.shortcuts import redirect, render ,get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
-from openpyxl import Workbook
-from requests import request
+
 from django.http import FileResponse, HttpResponse , JsonResponse
-import pandas as pd
+
 
 
 import users
@@ -191,31 +189,5 @@ def history(request,id):
     else:
         return HttpResponse("Some error occured")
     
-'''
-def download_excel(request):
 
-    objs = FormSubmission.objects.all()
-    
-    data = []
-
-    for obj in objs:
-        data.append({
-            'Campaign Name' : obj.campname,
-            'username':obj.idname,
-            'deposit':obj.amount,
-            'cashback':obj.cashback,
-            'date':obj.date,
-
-        })
-
-    pd.DataFrame(data).to_excel("output.xlsx")   
-
-    return JsonResponse({
-        'status':200
-    })  '''
-
-
-from django.http import FileResponse
-import pandas as pd
-from io import BytesIO
 
